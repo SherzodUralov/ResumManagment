@@ -1,0 +1,76 @@
+﻿@model Applicat
+@{
+    ViewData["Title"] = "Details Application";
+}
+<form id="ApplicantForm" asp-controller="Resum" asp-action="Details" method="post" enctype="multipart/form-data">
+    <div class="col-xl-9">
+        <div class="card" style="border-radius: 15px;">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="card-body">
+                <div class="mb-3 col-md-9">
+                    <label asp-for="Name" class="form-label">Name</label>
+                    <input asp-for="Name" class="form-control"/>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-md-9">
+                    <label asp-for="Gender" class="form-label">Gender</label>
+                    <input asp-for="Gender" class="form-control"/>
+                </div>
+                <div class="mb-3 col-md-9">
+                    <label asp-for="Age" class="form-label">Age</label>
+                    <input asp-for="Age" class="form-control" />
+                </div>
+                 <div class="mb-3 col-md-9">
+                    <label asp-for="Qualification" class="form-label">Qualification</label>
+                    <input asp-for="Qualification" class="form-control" />
+                </div>
+                  <div class="mb-3 col-md-9">
+                    <label asp-for="TotalExperions" class="form-label">TotalExperions</label>
+                    <input asp-for="TotalExperions" class="form-control" />
+                </div>
+                <div>
+                      <table id="exptable" class="table">
+                     <thead>
+                         <tr>
+                             <th>
+                                  CompanyName
+                             </th>
+                               <th>
+                                   Designation
+                             </th>
+                               <th>
+                                   YearsWorked
+                             </th>
+                             <th>
+
+                             </th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         @for (int i = 0; i <Model.Experions.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    <input asp-for="@Model.Experions[i].CompanyName" class="form-control"/>
+                                </td>
+                                <td>
+                                   <input asp-for="@Model.Experions[i].Designation" class="form-control"/>
+                                </td>
+                                <td>
+                                    <input asp-for="@Model.Experions[i].YearsWorked" class="form-control"/>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        }
+                     </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+
+    }
